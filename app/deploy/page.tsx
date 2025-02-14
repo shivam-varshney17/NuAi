@@ -48,7 +48,7 @@ interface DeployProps {
   onComplete: () => void;
 }
 
-export function Deploy({ onComplete }: DeployProps) {
+const Deploy = ({ onComplete }: DeployProps) => {
   const [isDeployed, setIsDeployed] = useState(false);
 
   const handleDeploy = () => {
@@ -71,30 +71,31 @@ export function Deploy({ onComplete }: DeployProps) {
               Deploy your AI sales agent in minutes and start converting visitors into qualified leads
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {plans.map((plan, index) => (
-                <div key={index} className={`bg-white p-6 rounded-lg shadow ${plan.isPopular ? 'border-2 border-blue-500' : ''}`}>
-                  <h2 className="text-xl font-semibold">{plan.name}</h2>
-                  <p className="text-lg text-gray-500">{plan.description}</p>
-                  <p className="text-2xl font-bold mt-2">{plan.price}</p>
-                  <ul className="mt-4 space-y-2">
-                    {plan.features.map((feature, i) => (
-                      <li key={i} className="flex items-center">
-                        <span className="text-green-500">✔️</span>
-                        <span className="ml-2">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <Button className="mt-4 w-full" variant="outline" onClick={handleDeploy}>
-                    Select {plan.name}
-                  </Button>
-                  {plan.isPopular && <span className="text-sm text-blue-500 mt-2 block">Popular</span>}
-                </div>
-              ))}
-            </div>
+            {plans.map((plan, index) => (
+              <div key={index} className={`bg-white p-6 rounded-lg shadow ${plan.isPopular ? 'border-2 border-blue-500' : ''}`}>
+                <h2 className="text-xl font-semibold">{plan.name}</h2>
+                <p className="text-lg text-gray-500">{plan.description}</p>
+                <p className="text-2xl font-bold mt-2">{plan.price}</p>
+                <ul className="mt-4 space-y-2">
+                  {plan.features.map((feature, i) => (
+                    <li key={i} className="flex items-center">
+                      <span className="text-green-500">✔️</span>
+                      <span className="ml-2">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Button className="mt-4 w-full" variant="outline" onClick={handleDeploy}>
+                  Select {plan.name}
+                </Button>
+                {plan.isPopular && <span className="text-sm text-blue-500 mt-2 block">Popular</span>}
+              </div>
+            ))}
           </div>
         </main>
       </div>
     </div>
-  )
-} 
+  );
+};
+
+// Export the Deploy component as the default export
+export default Deploy;
