@@ -10,36 +10,21 @@ const plans = [
     name: "Base",
     price: "$49/month",
     description: "Perfect for small businesses",
-    features: [
-      "1 AI Sales Agent",
-      "Basic Website Learning",
-      "8/5 Support",
-      "100 Conversations/month"
-    ],
+    features: ["1 AI Sales Agent", "Basic Website Learning", "8/5 Support", "100 Conversations/month"],
     isPopular: false,
   },
   {
     name: "Pro",
     price: "$149/month",
     description: "Ideal for growing companies",
-    features: [
-      "3 AI Sales Agents",
-      "Advanced Website Learning",
-      "24/7 Support",
-      "1000 Conversations/month"
-    ],
+    features: ["3 AI Sales Agents", "Advanced Website Learning", "24/7 Support", "1000 Conversations/month"],
     isPopular: true,
   },
   {
     name: "Ultra",
     price: "$399/month",
     description: "For enterprises",
-    features: [
-      "Unlimited AI Agents",
-      "Custom Website Learning",
-      "Dedicated Support",
-      "Unlimited Conversations"
-    ],
+    features: ["Unlimited AI Agents", "Custom Website Learning", "Dedicated Support", "Unlimited Conversations"],
     isPopular: false,
   },
 ];
@@ -49,16 +34,14 @@ const Deploy = ({ onComplete }) => {
 
   const handleDeploy = () => {
     setIsDeployed(true);
-    onComplete(); // Call the onComplete function when deployment is done
+    onComplete();
   };
 
   return (
     <div className="h-screen">
       <Header />
       <div className="flex h-[calc(100vh-3.5rem)]">
-        <div className="w-64 flex-none">
-          <Sidebar />
-        </div>
+        <Sidebar />
         <main className="flex-1 overflow-y-auto bg-gray-50/50 p-6">
           <div className="max-w-[1400px] mx-auto space-y-4">
             <h1 className="text-3xl font-bold mb-4 text-center">Ready to Deploy</h1>
