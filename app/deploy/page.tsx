@@ -3,6 +3,7 @@
 import { Header } from "@/components/layout/header"
 import { Sidebar } from "@/components/layout/sidebar"
 import { Button } from "@/components/ui/button"
+import { useState } from "react"
 
 const plans = [
   {
@@ -43,7 +44,19 @@ const plans = [
   },
 ];
 
-export default function DeployPage() {
+interface DeployProps {
+  onComplete: () => void;
+}
+
+export function Deploy({ onComplete }: DeployProps) {
+  const [isDeployed, setIsDeployed] = useState(false);
+
+  const handleDeploy = () => {
+    // Logic for deploying the agent
+    setIsDeployed(true);
+    onComplete(); // Call the onComplete function when deployment is done
+  };
+
   return (
     <div className="h-screen">
       <Header />
@@ -72,7 +85,7 @@ export default function DeployPage() {
                       </li>
                     ))}
                   </ul>
-                  <Button className="mt-4 w-full" variant="outline">
+                  <Button className="mt-4 w-full" variant="outline" onClick={handleDeploy}>
                     Select {plan.name}
                   </Button>
                   {plan.isPopular && <span className="text-sm text-blue-500 mt-2 block">Popular</span>}
