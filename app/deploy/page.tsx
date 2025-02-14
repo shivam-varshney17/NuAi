@@ -48,11 +48,10 @@ interface DeployProps {
   onComplete: () => void;
 }
 
-function Deploy({ onComplete }: DeployProps) {
+const Deploy = ({ onComplete }: DeployProps) => {
   const [isDeployed, setIsDeployed] = useState(false);
 
   const handleDeploy = () => {
-    // Logic for deploying the agent
     setIsDeployed(true);
     onComplete(); // Call the onComplete function when deployment is done
   };
@@ -70,7 +69,6 @@ function Deploy({ onComplete }: DeployProps) {
             <p className="text-gray-600 mb-6 text-center">
               Deploy your AI sales agent in minutes and start converting visitors into qualified leads
             </p>
-
             {plans.map((plan, index) => (
               <div key={index} className={`bg-white p-6 rounded-lg shadow ${plan.isPopular ? 'border-2 border-blue-500' : ''}`}>
                 <h2 className="text-xl font-semibold">{plan.name}</h2>
@@ -95,6 +93,6 @@ function Deploy({ onComplete }: DeployProps) {
       </div>
     </div>
   );
-}
+};
 
 export default Deploy;
