@@ -1,9 +1,9 @@
 "use client"
 
-import { Header } from "@/components/layout/header"
-import { Sidebar } from "@/components/layout/sidebar"
-import { Button } from "@/components/ui/button"
-import { useState } from "react"
+import { Header } from "@/components/layout/header";
+import { Sidebar } from "@/components/layout/sidebar";
+import { Button } from "@/components/ui/button";
+import { useState } from "react";
 
 const plans = [
   {
@@ -44,11 +44,7 @@ const plans = [
   },
 ];
 
-interface DeployProps {
-  onComplete: () => void;
-}
-
-const Deploy = ({ onComplete }: DeployProps) => {
+const Deploy = ({ onComplete }) => {
   const [isDeployed, setIsDeployed] = useState(false);
 
   const handleDeploy = () => {
@@ -88,6 +84,13 @@ const Deploy = ({ onComplete }: DeployProps) => {
                 {plan.isPopular && <span className="text-sm text-blue-500 mt-2 block">Popular</span>}
               </div>
             ))}
+            {!isDeployed ? (
+              <Button className="bg-green-500 hover:bg-green-600 text-white mt-6" onClick={handleDeploy}>
+                Deploy Agent
+              </Button>
+            ) : (
+              <p className="text-green-500 mt-6">Your agent has been deployed successfully!</p>
+            )}
           </div>
         </main>
       </div>
