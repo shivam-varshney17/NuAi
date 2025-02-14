@@ -48,7 +48,7 @@ interface DeployProps {
   onComplete: () => void;
 }
 
-const Deploy = ({ onComplete }: DeployProps) => {
+function Deploy({ onComplete }: DeployProps) {
   const [isDeployed, setIsDeployed] = useState(false);
 
   const handleDeploy = () => {
@@ -95,7 +95,6 @@ const Deploy = ({ onComplete }: DeployProps) => {
       </div>
     </div>
   );
-};
+}
 
-// Export the Deploy component as the default export
 export default Deploy;
