@@ -59,7 +59,7 @@ export default function DashboardPage() {
                 <Preview onComplete={() => setActiveTab('deploy')} />
               )}
               {activeTab === 'deploy' && (
-                <Deploy onComplete={() => {}} />
+                <Deploy onComplete={() => { /* Your completion logic here */ }} />
               )}
             </div>
 
